@@ -3,10 +3,10 @@ import { Item, GildedRose } from '../app/gilded-rose';
 
 describe('Gilded Rose', function () {
 
-    it('should foo', function() {
-        const gildedRose = new GildedRose([ new Item('foo', 0, 0) ]);
+    it('normal item', function() {
+        const gildedRose = new GildedRose([ new Item('burger', 25, 15) ]);
         const items = gildedRose.updateQuality();
-        expect(items[0].name).to.equal('fixme');
+        expect(items[0]).deep.equal(new Item('burger', 24, 14));
     });
 
 });
