@@ -61,6 +61,18 @@ describe('Gilded Rose', function () {
         const gildedRose = new GildedRose([ new Item('Aged Brie', 43, 50) ]);
         const items = gildedRose.updateQuality();
         expect(items[0]).deep.equal(new Item('Aged Brie', 42, 50));
-    })
+    });
+
+    it('conjured', () => {
+        const gildedRose = new GildedRose([ new Item('Conjured Mana Cake', 43, 24) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0]).deep.equal(new Item('Conjured Mana Cake', 42, 22));
+    });
+
+    it('conjured - sub zero', () => {
+        const gildedRose = new GildedRose([ new Item('Conjured Mana Cake', -2, 24) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0]).deep.equal(new Item('Conjured Mana Cake', -3, 20));
+    });
 
 });
