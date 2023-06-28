@@ -63,8 +63,11 @@ export class GildedRose {
                     this.items[i].sellIn--;
                     break;
             }
-            if (this.items[i].quality > 50) {
-                this.items[i].quality = 50;
+            this.items[i].quality = Math.max(0, this.items[i].quality);
+            if (this.items[i].name !== 'Sulfuras, Hand of Ragnaros') {
+                this.items[i].quality = Math.min(50, this.items[i].quality);
+            } else {
+                this.items[i].quality = Math.min(80, this.items[i].quality);
             }
         }
 
