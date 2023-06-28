@@ -57,4 +57,10 @@ describe('Gilded Rose', function () {
         expect(items[0]).deep.equal(new Item('Aged Brie', -3, 17));
     });
 
+    it('quality over 50', () => {
+        const gildedRose = new GildedRose([ new Item('Aged Brie', 43, 50) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0]).deep.equal(new Item('Aged Brie', 42, 50));
+    })
+
 });
